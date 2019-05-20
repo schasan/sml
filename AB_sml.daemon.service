@@ -1,0 +1,14 @@
+# /etc/systemd/system/AB_sml.daemon.service
+
+[Unit]
+	Description=SML Parser fuer allgemeinen Bedarf
+	After=multi-user.target
+ 
+[Service]
+	Type=idle
+	ExecStart=/usr/bin/python /home/pi/sml/sml_parser_AB_usb1.py
+	Restart=on-failure
+	RestartSec=1m
+ 
+[Install]
+	WantedBy=multi-user.target
